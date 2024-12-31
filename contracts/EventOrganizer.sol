@@ -23,7 +23,7 @@ contract EventOrganizer {
         uint _date
     ) external {
         require(
-            block.timestamp > _date,
+            block.timestamp < _date,
             "the event can be organized in the future"
         );
         require(_ticketCount > 0, "can create event with at least one ticket");
@@ -52,7 +52,7 @@ contract EventOrganizer {
         );
         require(
             event_.ticketRemaining >= _quantity,
-            "cannot buy the event tickets that isn't enough"
+            "cannot buy the event tickets that is not enough"
         );
 
         event_.ticketRemaining -= _quantity;
